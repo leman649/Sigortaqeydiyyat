@@ -14,7 +14,7 @@ namespace SigortaQeydiyyat
             Yas = yas;
         }
 
-        public override double QiymetHesabla()
+        public override double Qiymethesabla()
         {
             if (Yas > 50) return esasqiymet + 120;
             return esasqiymet + 30;
@@ -22,7 +22,7 @@ namespace SigortaQeydiyyat
 
         public override void MelumatGoster()
         {
-            Console.WriteLine($"ID: {Id} | [SAĞLAMLIQ] {MusteriAdSoyad} | Yaş: {Yas} | Qiymət: {QiymetHesabla()} AZN | Tel: {Telefon} |Email:{Email}|Finkod:{FinKod}");
+            Console.WriteLine($"ID: {Id} | [SAĞLAMLIQ] {MusteriAdSoyad} | Yaş: {Yas} | Qiymət: {Qiymethesabla()} AZN | Tel: {Telefon} |Email:{Email}|Finkod:{FinKod}");
         }
     }
 }
