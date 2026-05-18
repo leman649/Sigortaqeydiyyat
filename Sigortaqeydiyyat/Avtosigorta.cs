@@ -21,7 +21,7 @@ namespace SigortaQeydiyyat
 
         public override void MelumatGoster()
         {
-            Console.WriteLine($"ID: {Id} | [AVTO] {MusteriAdSoyad} | İl: {Il} | Qiymət: {QiymetHesabla()} AZN | Tel: {Telefon} |Email:{Email}|Finkod:{FinKod}");
+            Console.WriteLine($"ID: {Id} | [AVTO] {MusteriAdSoyad} | İl: {Il} | Qiymət: {Qiymethesabla()} AZN | Tel: {Telefon} |Email:{Email}|Finkod:{FinKod}");
         }
     }
 }
