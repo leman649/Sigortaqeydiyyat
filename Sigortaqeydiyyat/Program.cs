@@ -9,9 +9,9 @@ namespace SigortaQeydiyyat
         static void Main(string[] args)
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
-            bool davamEdilsin = true;
+            bool davamedilsin = true;
 
-            while (davamEdilsin)
+            while (davamedilsin)
             {
                 Console.Clear();
                 Console.WriteLine("SIĞORTA QEYDİYYAT SİSTEMİ ");
@@ -37,12 +37,15 @@ namespace SigortaQeydiyyat
                             Console.WriteLine("XƏTA: Ad boş buraxıla bilməz!\n");
                             continue;
                         }
-                        bool ancaqHerfdir = true;
+                        bool herf = true;
                         foreach (char c in ad)
                         {
-                            if (!char.IsLetter(c) && !char.IsWhiteSpace(c)) { ancaqHerfdir = false; break; }
+                            if (!char.IsLetter(c) && !char.IsWhiteSpace(c)) 
+                            { herf = false; 
+                             break;
+                            }
                         }
-                        if (ancaqHerfdir) break;
+                        if (herf) break;
                         else Console.WriteLine("XƏTA: Ad Soyad daxilində rəqəm və ya simvol ola bilməz!\n");
                     }
 
@@ -62,10 +65,18 @@ namespace SigortaQeydiyyat
                     {
                         Console.Write("Telefonu (Ancaq rəqəmlər): ");
                         tel = Console.ReadLine();
-                        if (string.IsNullOrWhiteSpace(tel)) { Console.WriteLine("XƏTA: Telefon boş buraxıla bilməz!\n"); continue; }
-                        bool ancaqReqemdir = true;
-                        foreach (char c in tel) { if (!char.IsDigit(c)) { ancaqReqemdir = false; break; } }
-                        if (ancaqReqemdir) break;
+                        if (string.IsNullOrWhiteSpace(tel))
+                        { Console.WriteLine("XƏTA: Telefon boş buraxıla bilməz!\n");
+                         continue; 
+                        }
+                        bool reqem = true;
+                        foreach (char c in tel) 
+                        { if (!char.IsDigit(c))
+                        {  reqem = false;
+                        break;
+                               }
+                        }
+                        if (reqem) break;
                         else Console.WriteLine("XƏTA: Telefon nömrəsində hərf və ya simvol ola bilməz!\n");
                     }
 
@@ -75,7 +86,8 @@ namespace SigortaQeydiyyat
                     {
                         Console.Write("E-poçt Ünvanı (Email): ");
                         email = Console.ReadLine();
-                        if (!string.IsNullOrWhiteSpace(email) && email.Contains("@")) break;
+                        if (!string.IsNullOrWhiteSpace(email) && email.Contains("@"))
+                            break;
                         Console.WriteLine("XƏTA: Düzgün email ünvanı daxil edin (Məsələn: musteri@mail.com)!\n");
                     }
 
@@ -91,13 +103,16 @@ namespace SigortaQeydiyyat
                     }
 
                   
-                    double xususiDeyer = 0;
+                    double xususideyer = 0;
                     if (nov == "1")
                     {
                         while (true)
                         {
                             Console.Write("Avtomobilin istehsal ilini daxil edin (məs: 2020): ");
-                            if (int.TryParse(Console.ReadLine(), out int il) && il > 1900 && il <= DateTime.Now.Year + 1) { xususiDeyer = il; break; }
+                            if (int.TryParse(Console.ReadLine(), out int il) && il > 1900 && il <= DateTime.Now.Year + 1) 
+                            { xususideyer = il; 
+                             break; 
+                            }
                             Console.WriteLine("XƏTA: Düzgün il daxil edin!\n");
                         }
                     }
@@ -106,7 +121,9 @@ namespace SigortaQeydiyyat
                         while (true)
                         {
                             Console.Write("Müştərinin yaşını daxil edin: ");
-                            if (int.TryParse(Console.ReadLine(), out int yas) && yas > 0 && yas < 120) { xususiDeyer = yas; break; }
+                            if (int.TryParse(Console.ReadLine(), out int yas) && yas > 0 && yas < 120) 
+                            { xususideyer = yas;
+                            break; }
                             Console.WriteLine("XƏTA: Düzgün yaş daxil edin!\n");
                         }
                     }
@@ -115,12 +132,14 @@ namespace SigortaQeydiyyat
                         while (true)
                         {
                             Console.Write("Əmlakın sahəsini daxil edin (m²): ");
-                            if (double.TryParse(Console.ReadLine(), out double sahe) && sahe > 0) { xususiDeyer = sahe; break; }
+                            if (double.TryParse(Console.ReadLine(), out double sahe) && sahe > 0)
+                            { xususideyer = sahe;
+                             break; }
                             Console.WriteLine("XƏTA: Düzgün sahə dəyəri daxil edin!\n");
                         }
                     }
 
-                    insuranceController.SigortaVer(ad, tel, fin, email, nov, xususiDeyer);
+                    insuranceController.Sigortaver(ad, tel, fin, email, nov, xususiDeyer);
                     Gozle();
                 }
                 else if (secim == "2")
@@ -139,7 +158,7 @@ namespace SigortaQeydiyyat
                 }
                 else if (secim == "4")
                 {
-                    davamEdilsin = false;
+                    davamedilsin = false;
                 }
             }
         }
