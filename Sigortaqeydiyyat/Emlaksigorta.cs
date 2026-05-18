@@ -14,7 +14,7 @@ namespace SigortaQeydiyyat
         }
        
 
-        public override double QiymetHesabla()
+        public override double Qiymethesabla()
         {
             return esasqiymet + (Sahe * 0.5);
         }
