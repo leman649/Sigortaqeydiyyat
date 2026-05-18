@@ -16,7 +16,7 @@ namespace SigortaQeydiyyat
 
         public override double QiymetHesabla()
         {
-            return Esasqiymet + (Sahe * 0.5);
+            return esasqiymet + (Sahe * 0.5);
         }
 
         public override void MelumatGoster()
