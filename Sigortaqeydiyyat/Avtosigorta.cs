@@ -13,10 +13,10 @@ namespace SigortaQeydiyyat
             Il = il;
         }
 
-        public override double QiymetHesabla()
+        public override double qiymethesabla()
         {
-            if (Il < 2015) return Esasqiymet + 80;
-            return Esasqiymet + 40;
+            if (Il < 2015) return esasqiymet + 80;
+            return esasqiymet + 40;
         }
 
         public override void MelumatGoster()
