@@ -16,8 +16,8 @@ namespace SigortaQeydiyyat
 
         public override double QiymetHesabla()
         {
-            if (Yas > 50) return Esasqiymet + 120;
-            return Esasqiymet + 30;
+            if (Yas > 50) return esasqiymet + 120;
+            return esasqiymet + 30;
         }
 
         public override void MelumatGoster()
