@@ -20,14 +20,14 @@ namespace SigortaQeydiyyat
             Email = email;
         }
 
-        public virtual double QiymetHesabla()
+        public virtual double Qiymethesabla()
         {
             return Esasqiymet;
         }
 
         public virtual void MelumatGoster()
         {
-            Console.WriteLine($"ID: {Id} | Müştəri: {MusteriAdSoyad} | FİN: {FinKod} | Tel: {Telefon} | Email: {Email} | Qiymət: {QiymetHesabla()} AZN");
+            Console.WriteLine($"ID: {Id} | Müştəri: {MusteriAdSoyad} | FİN: {FinKod} | Tel: {Telefon} | Email: {Email} | Qiymət: {Qiymethesabla()} AZN");
         }
     }
 }
